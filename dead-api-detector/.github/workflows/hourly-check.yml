@@ -1,0 +1,21 @@
+name: Hourly API Health Check
+
+on:
+  schedule:
+    # Run every hour
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Trigger API Health Check
+        run: |
+          curl -X POST ${{ secrets.BACKEND_URL }}/check-all \
+            -H "Content-Type: application/json" \
+            -w "\nHTTP Status: %{http_code}\n"
+        env:
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+
