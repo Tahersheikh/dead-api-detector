@@ -64,9 +64,13 @@ export default function DashboardClient({ initialApis, initialCategories }: Prop
   // ── Debounced search handler ──────────────────────────────────────────────
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedPushParams = useCallback(
-    debounce((cat: string, srch: string) => pushParams(cat, srch), SEARCH_DEBOUNCE_MS),
-    [pushParams]
-  );
+  debounce((cat: string, srch: string) => {
+    pushParams(cat, srch);
+  }, SEARCH_DEBOUNCE_MS),
+  [pushParams]
+);
+
+
 
   const handleCategoryChange = (cat: string) => {
     setCategory(cat);
