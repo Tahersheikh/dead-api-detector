@@ -4,6 +4,7 @@
  * Server component fetches initial data.
  * Client component (DashboardClient) handles interactivity.
  */
+import { Suspense } from "react";
 import { fetchApis, fetchCategories } from "@/lib/api";
 import DashboardClient from "./DashboardClient";
 
@@ -33,7 +34,9 @@ export default async function HomePage() {
 
       {/* ── Dashboard ──────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <DashboardClient initialApis={apis} initialCategories={categories} />
+        <Suspense fallback={<div className="text-gray-400">Loading dashboard...</div>}>
+          <DashboardClient initialApis={apis} initialCategories={categories} />
+        </Suspense>
       </div>
 
       {/* ── Footer ─────────────────────────────────────────── */}
