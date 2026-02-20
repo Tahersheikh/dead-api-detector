@@ -2,7 +2,7 @@
 
 > Real-time public API health monitoring. Know which APIs are up, down, and how fast they respond — before you depend on them.
 
-![Dead API Detector Dashboard](https://via.placeholder.com/900x400/1a1a2e/60a5fa?text=Dead+API+Detector+%E2%80%94+Dashboard+Preview)
+![Dead API Detector Dashboard]((https://dead-api-detector-yyy2.vercel.app/))
 
 ## ✨ Features
 
